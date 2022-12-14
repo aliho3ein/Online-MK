@@ -1,0 +1,110 @@
+.officeBase {
+  height: 600px;
+  width: 100vw;
+  background: center / cover
+    url(https://images.ctfassets.net/9mt55bm0937w/MG1RFWzjcTvX2pCXuATrd/a1ae33aa851c7654777b512cdb8c765b/Key_Visual_Office_Spaces_Koeln_Gereon_Project_Office.jpg?q=75&fm=webp);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px #000;
+  margin-block: 50px;
+
+  .firstP {
+    height: 350px;
+    top: 180px;
+    display: none;
+    position: absolute;
+    @include MediaQuery(750) {
+      display: block;
+      left: 10px;
+    }
+    @include MediaQuery(950) {
+      left: 100px;
+    }
+    @include MediaQuery(1550) {
+      left: 300px;
+    }
+  }
+
+  .secondP {
+    position: absolute;
+    height: 500px;
+    left: 10px;
+    top: 100px;
+    z-index: 2;
+    @include MediaQuery(750) {
+      left: 150px;
+    }
+    @include MediaQuery(850) {
+      left: 450px;
+    }
+    @include MediaQuery(1000) {
+      left: 800px;
+    }
+  }
+
+  .laptop {
+    position: absolute;
+    height: 80px;
+    top: 340px;
+    left: 900px;
+    display: none;
+    @include MediaQuery(1550) {
+      display: block;
+      left: 1200px;
+      top: 330px;
+    }
+    @include MediaQuery(1700) {
+      left: 1250px;
+    }
+    @include MediaQuery(1900) {
+      left: 1400px;
+      top: 350px;
+    }
+  }
+}
+
+.ourWork {
+  width: 70vw;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10%;
+
+  > div {
+    width: 40%;
+    min-width: 300px;
+    min-height: 350px;
+    color: $secondary-color;
+    margin-top: 100px;
+
+    p {
+      padding-block: 20px;
+      line-height: 1.4rem;
+    }
+  }
+  .workImg {
+    box-shadow: 0 0 8px #999;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px 0;
+    transition: all 300ms;
+  }
+
+  .workInfo:nth-of-type(4n) {
+    text-align: end;
+  }
+
+  .workImg:nth-of-type(2) {
+    background-image: url(https://e-startup.de/wp-content/uploads/2021/04/social-media-traffic.jpg);
+  }
+  .workImg:nth-of-type(3) {
+    background-image: url(https://www.stateofdigitalpublishing.com/wp-content/uploads/2021/07/What-Is-a-Content-Creator.jpg);
+  }
+  .workImg:nth-of-type(6) {
+    background-image: url(https://www.flyerpilot.de/magazin/wp-content/uploads/2017/01/flyerpilot_inspiration_16_visitenkarten-oekodruck-960x600.jpg);
+  }
+  .workImg:nth-of-type(7) {
+    background-image: url(https://wp-mktg.prod.getty1.net/marketing/wp-content/uploads/sites/7/bfi_thumb/thumbnail-32a4aa1a097f11ebab8de7e31b7b80fc-pffo9em12cmiou7n65sv1jgesta7967dvg47kiq844.jpeg);
+  }
+}

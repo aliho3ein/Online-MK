@@ -1,0 +1,50 @@
+/* ----------------------- Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
+
+/* Font */
+$secondary-font: "Josefin Sans", sans-serif;
+
+/* ----------------------- Colors */
+$primary-color: #0f2319;
+$secondary-color: rgb(245, 244, 220);
+
+/* -------------------- CSS normalize */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.disNone {
+  display: none !important;
+}
+
+/*----------------------- MediaQuery  */
+
+@mixin MediaQuery($size) {
+  @media screen and (min-width: ($size + px)) {
+    @content;
+  }
+}
+
+/* ------------------ Global Animation */
+/* Jump Button */
+@keyframes jumpBtn {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-5px);
+  }
+  20% {
+    transform: translateY(5px);
+  }
+  30% {
+    transform: translateY(-2px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+}

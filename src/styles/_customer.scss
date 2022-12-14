@@ -1,0 +1,39 @@
+.customerArea {
+  width: 70vw;
+  padding-block: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-inline: auto;
+
+  .cardCustomer {
+    width: 30%;
+    min-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+    border: 1px solid #ccc;
+
+    .imgCard {
+      height: 200px;
+      width: 100%;
+      background-image: url(https://pro2-bar-s3-cdn-cf3.myportfolio.com/3535c036-af53-473c-8a34-a8db48c7b4d7/ebf7bf09-4ecd-478b-90e8-3302db7c4a1f_rwc_0x0x1080x810x1080.png?h=ff87fc48d84894b3611f1ab562ff86e9);
+      background-position: top;
+      background-size: cover;
+    }
+
+    .infoCard {
+      padding: 10px;
+      color: $secondary-color;
+
+      p {
+        line-height: 1.5rem;
+        padding: 10px;
+      }
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+}

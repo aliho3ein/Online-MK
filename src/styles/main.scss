@@ -1,0 +1,93 @@
+@import "variable";
+@import "header";
+@import "card";
+@import "nav";
+@import "footer";
+@import "about";
+@import "customer";
+@import "contact";
+@import "./manage";
+@import "./popUp";
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: $primary-color;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding-block: 100px;
+}
+
+/* ------------------------- Button go to top */
+@mixin goUp {
+  content: "";
+  width: 3px;
+  height: 25px;
+  position: absolute;
+  top: -4px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.jumpTop {
+  height: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 3rem;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 300ms;
+  animation: jumpBtn 3s ease infinite reverse;
+  display: none;
+  z-index: 99;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  span {
+    width: 4px;
+    height: 35px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 15px;
+
+    &:after {
+      @include goUp;
+      transform: rotate(35deg);
+      right: 7px;
+    }
+
+    &:before {
+      @include goUp;
+      transform: rotate(-35deg);
+      left: 7px;
+    }
+  }
+}
+
+/* --------------------------  Scroll */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $secondary-color;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}

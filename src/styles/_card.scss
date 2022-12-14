@@ -1,0 +1,129 @@
+$card-height: 450px;
+
+#crewContainer {
+  height: auto;
+  width: 50vw;
+  min-width: 300px;
+  display: flex;
+  flex-flow: row wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  .crewCard {
+    .card {
+      .cardInfo {
+        height: 110%;
+        width: 100%;
+        background: rgb(0 0 0 / 0.5);
+        backdrop-filter: blur(5px);
+        position: absolute;
+        top: calc($card-height - 70px);
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        color: $secondary-color;
+        padding: 5%;
+        transition: all 500ms ease;
+
+        ul {
+          line-height: 2rem;
+          padding: 10%;
+          list-style-type: none;
+        }
+
+        ul.detail {
+          li::before {
+            font: var(--fa-font-solid);
+            font-size: 0.9rem;
+            padding-inline: 8px;
+            vertical-align: 2px;
+          }
+
+          li:nth-child(1)::before {
+            content: "\f508";
+          }
+
+          li:nth-child(2)::before {
+            content: "\f095";
+          }
+          li:nth-child(3)::before {
+            content: "\f0e0";
+          }
+
+          li:nth-child(4)::before {
+            content: "\f02e";
+          }
+        }
+
+        ul.social {
+          li {
+            margin: 8px;
+            font-size: 1.4rem;
+            transition: all 200ms;
+          }
+        }
+
+        h2 {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .cardInfoUp {
+        top: 0;
+      }
+    }
+  }
+}
+
+/*  Crew Card Effect */
+.crewCard {
+  width: 45%;
+  min-width: 300px;
+  height: $card-height;
+  position: relative;
+  perspective: 800px;
+  display: flex;
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+  flex-flow: wrap;
+  cursor: pointer;
+  margin: 10px;
+
+  .card {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 20px #000;
+    background-position: top;
+    background-size: cover;
+    position: absolute;
+    transition: transform 500ms;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}
+
+div[class*="part"] {
+  z-index: 3;
+}
+
+/* Enter ur deg here ------- */
+$xLine: 3;
+$yLine: -3;
+
+$x: $xLine;
+$y: $yLine;
+
+@for $i from 1 to 26 {
+  .part#{$i}:hover ~ .card {
+    transform: rotateX(#{$x}deg) rotateY(#{$y}deg);
+  }
+  $y: $y + calc($yLine / -2);
+
+  @if ($y > calc($yLine * -1)) {
+    $y: $yLine;
+  }
+  @if ($i%5 == 0) {
+    $x: $x - calc($xLine / 2);
+  }
+}

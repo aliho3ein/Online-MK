@@ -1,0 +1,94 @@
+header {
+  height: 700px;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+
+  .downBtn {
+    color: $secondary-color;
+    width: 45px;
+    aspect-ratio: 1;
+    font-size: 3rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    bottom: 0;
+    cursor: pointer;
+    animation: jumpBtn 3s ease infinite reverse;
+
+    span {
+      width: 40px;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      transform: rotate(45deg);
+      top: 15px;
+      right: 15px;
+
+      &:after {
+        content: "";
+        @extend span;
+        transform: rotate(-90deg);
+        top: -20px;
+        right: -20px;
+      }
+    }
+  }
+}
+
+/* Text Animation Style */
+
+.ml5 {
+  font-weight: 300;
+  font-size: 2.5em;
+  color: $secondary-color;
+  position: fixed;
+  width: 80%;
+  text-align: center;
+
+  @include MediaQuery(500) {
+    font-size: 3em;
+  }
+
+  @include MediaQuery(1300) {
+    font-size: 4.5em;
+  }
+}
+
+.ml5 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 2rem;
+  /*padding-right: 0.05em;
+  padding-bottom: 3rem;*/
+}
+
+.ml5 .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background-color: $secondary-color;
+  transform-origin: 0.5 0;
+}
+
+.ml5 .ampersand {
+  font-family: Baskerville, serif;
+  font-style: italic;
+  font-weight: 400;
+  width: 3rem;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
+}
+
+.ml5 .letters {
+  display: inline-block;
+  opacity: 0;
+}
