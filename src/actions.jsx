@@ -29,6 +29,7 @@ function navEffect() {
 /* Toggle Burger Menu */
 function toggleMenu() {
   document.querySelector(".burgerMenu").classList.toggle("activeNav");
+  document.querySelector(".lgNav").classList.toggle("activeNavBar");
 }
 
 /* Header Text Animation*/
@@ -46,7 +47,7 @@ function headerText() {
       targets: ".ml5 .line",
       duration: 600,
       easing: "easeOutExpo",
-      translateY: (el, i) => -0.625 + 0.625 * 3 * i + "em",
+      translateY: (el, i) => -0.625 + 0.625 * 4 * i + "em",
     })
     .add({
       targets: ".ml5 .ampersand",

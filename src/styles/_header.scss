@@ -44,11 +44,11 @@ header {
 
 .ml5 {
   font-weight: 300;
-  font-size: 2.5em;
+  font-size: 2.8em;
   color: $secondary-color;
   position: fixed;
-  width: 80%;
   text-align: center;
+  width: 100%;
 
   @include MediaQuery(500) {
     font-size: 3em;
@@ -57,38 +57,48 @@ header {
   @include MediaQuery(1300) {
     font-size: 4.5em;
   }
-}
 
-.ml5 .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 2rem;
-  /*padding-right: 0.05em;
-  padding-bottom: 3rem;*/
-}
+  .text-wrapper {
+    position: relative;
+    display: inline-block;
+    box-sizing: unset;
+    padding: 2.8rem 0.5rem 0rem;
 
-.ml5 .line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  height: 3px;
-  width: 100%;
-  background-color: $secondary-color;
-  transform-origin: 0.5 0;
-}
+    @include MediaQuery(500) {
+      padding: 3rem 0.5rem 0rem;
+    }
 
-.ml5 .ampersand {
-  font-family: Baskerville, serif;
-  font-style: italic;
-  font-weight: 400;
-  width: 3rem;
-  margin-right: -0.1em;
-  margin-left: -0.1em;
-}
+    @include MediaQuery(1300) {
+      padding: 4.5rem 0.5rem 0rem;
+    }
+  }
 
-.ml5 .letters {
-  display: inline-block;
-  opacity: 0;
+  .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 3px;
+    width: 100%;
+    background-color: $secondary-color;
+    transform-origin: 0.5 0;
+  }
+
+  .ampersand {
+    font-family: Baskerville, serif;
+    font-style: italic;
+    font-weight: 400;
+    width: 3rem;
+    margin-right: -0.1em;
+    margin-left: -0.1em;
+  }
+
+  .letters {
+    display: block;
+    opacity: 0;
+    @include MediaQuery(500) {
+      display: inline-block;
+    }
+  }
 }

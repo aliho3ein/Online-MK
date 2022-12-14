@@ -45,15 +45,18 @@ main {
   bottom: 50px;
   right: 50px;
   font-size: 3rem;
-  opacity: 0.5;
+  opacity: 0;
   cursor: pointer;
   transition: opacity 300ms;
   animation: jumpBtn 3s ease infinite reverse;
   display: none;
   z-index: 99;
 
-  &:hover {
-    opacity: 1;
+  @include MediaQuery(1050) {
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   span {

@@ -10,6 +10,11 @@ export default function Navbar() {
 
   const { state, despatch } = useContext(omContext);
 
+  let ChangePage = () => {
+    window.scrollTo(0, 0);
+    toggleMenu();
+  };
+
   return (
     <nav id="navBar">
       <div className="burgerMenu" onClick={toggleMenu}>
@@ -18,42 +23,43 @@ export default function Navbar() {
       <img src="./image/logo.png" alt="logo" id="logo" />
       <ul className="lgNav">
         <div className="backNavEffect"></div>
-        <li>
+        <li onClick={ChangePage}>
           <Link to="/" data-left="0" data-width="1">
             Home
           </Link>
         </li>
-        <li>
+        <li onClick={ChangePage}>
           <Link to="/about" data-left="78" data-width="3">
             Experties
           </Link>
         </li>
-        <li>
+        <li onClick={ChangePage}>
           <Link to="/customer" data-left="185" data-width="2">
             Kunden
           </Link>
         </li>
-        <li>
+        <li onClick={ChangePage}>
           <Link to="/contact" data-left="280" data-width="2">
             Kontact
           </Link>
         </li>
+
+        <span className="navLogin" onClick={ChangePage}>
+          <Link to="/manage">Profile</Link>
+          {state.user && (
+            <a
+              href="#!"
+              onClick={() => {
+                despatch({ type: "setUser", payload: { username: "" } });
+                document.cookie =
+                  "userName='';expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=None;Secure";
+              }}
+            >
+              Sign out
+            </a>
+          )}
+        </span>
       </ul>
-      <span className="navLogin">
-        <Link to="/manage">Profile</Link>
-        {state.user && (
-          <a
-            href="#!"
-            onClick={() => {
-              despatch({ type: "setUser", payload: { username: "" } });
-              document.cookie =
-                "userName='';expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=None;Secure";
-            }}
-          >
-            Sign out
-          </a>
-        )}
-      </span>
     </nav>
   );
 }

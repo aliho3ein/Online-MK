@@ -1,18 +1,18 @@
 $MobileScreen-size: 1050;
 
 nav {
-  height: 50px;
+  min-height: 60px;
+  height: auto;
   width: 100vw;
   display: flex;
-  align-items: center;
   user-select: none;
-  align-items: center;
   position: fixed;
   z-index: 9;
   background-color: $primary-color;
 
   @include MediaQuery($MobileScreen-size) {
     position: relative;
+    align-items: center;
     height: 80px;
   }
 
@@ -27,27 +27,40 @@ nav {
     transform: translateY(2px);
     filter: drop-shadow(0 0 5px #ccc);
     display: block;
+    z-index: 9;
+    animation: logoLight 5s linear infinite reverse;
 
     @include MediaQuery($MobileScreen-size) {
       height: 30px;
     }
   }
 
-  ul {
+  ul.lgNav {
+    display: flex;
     justify-content: center;
-    align-self: center;
+    align-items: center;
+    flex-direction: column;
     list-style-type: none;
-    gap: 20px;
-    margin-left: 50px;
-    position: relative;
-    display: none;
-    // height: 100vh;
-    // width: 100vw;
-    // background-color: #666;
-    // color: red;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: rgb(0 0 0 / 0.5);
+    backdrop-filter: blur(20px);
+    font-size: 2rem;
+    gap: 5%;
+    transition: left 200ms;
+    left: -100vw;
 
     @include MediaQuery($MobileScreen-size) {
-      display: flex;
+      height: 80px;
+      flex-direction: row;
+      justify-content: flex-start;
+      font-size: 1rem;
+      gap: 20px;
+      margin-left: 50px;
+      left: 0;
+      position: relative;
+      background-color: transparent;
     }
 
     .backNavEffect {
@@ -70,6 +83,10 @@ nav {
         rgb(255 255 255 /0.1),
         rgb(255 255 255 /0.2)
       );
+      display: none;
+      @include MediaQuery($MobileScreen-size) {
+        display: block;
+      }
     }
 
     li {
@@ -90,16 +107,21 @@ nav {
     }
   }
 
+  ul.activeNavBar {
+    transition: left 300ms;
+    left: 0;
+  }
+
   .navLogin {
-    margin-inline: auto 50px;
     cursor: pointer;
     transition: all 300ms;
     font-weight: 500;
     padding: 5px 8px;
-    display: none;
+    font-size: 1.6rem;
 
     @include MediaQuery($MobileScreen-size) {
-      display: inline;
+      margin-inline: auto 50px;
+      font-size: 1rem;
     }
 
     a {
@@ -110,6 +132,14 @@ nav {
       border-radius: 5px;
       border: 1px solid #666;
       margin-right: 10px;
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+
+      @include MediaQuery($MobileScreen-size) {
+        display: inline-block;
+        margin-top: 0px;
+      }
 
       &:nth-child(2) {
         color: red;
@@ -124,6 +154,18 @@ nav {
       &:hover {
         text-shadow: 0 0 5px #ccc;
       }
+    }
+  }
+
+  @keyframes logoLight {
+    0% {
+      filter: drop-shadow(0 0 5px #ccc);
+    }
+    50% {
+      filter: drop-shadow(0 0 1px #ccc);
+    }
+    100% {
+      filter: drop-shadow(0 0 5px #ccc);
     }
   }
 
@@ -146,7 +188,10 @@ nav {
     aspect-ratio: 1;
     position: absolute;
     left: 5%;
+    top: 15px;
     cursor: pointer;
+    z-index: 9;
+
     @include MediaQuery($MobileScreen-size) {
       display: none;
     }
