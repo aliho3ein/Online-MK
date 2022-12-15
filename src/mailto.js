@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const nodemailer = require("nodemailer");
 
 const mailto = express();
@@ -35,5 +35,3 @@ mailto.listen(port, () => {
     console.log("ok2");
   });
 });*/
-
-export { sendEmail };
