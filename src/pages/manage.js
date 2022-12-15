@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import omContext from "./../context/omContext";
 
-/* */
+/* Api */
 import instance from "./../api/omApi";
 
 /* Requests */
-import { GetWork, togglePopUp } from "./../request";
+import { togglePopUp } from "./../request";
 import { showPass } from "./../actions";
 
 /* Component */
@@ -15,6 +15,7 @@ import SingleItem from "../component/singleManageItem";
 export default function Manager() {
   let { state, despatch } = useContext(omContext);
 
+  /* Users */
   let [users, setUsers] = useState();
 
   useEffect(() => {

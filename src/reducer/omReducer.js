@@ -2,14 +2,15 @@ function omReducer(state, despatch) {
   let { type, payload } = despatch;
 
   switch (type) {
+    /* Login User */
     case "setUser":
       return { ...state, user: payload.username };
-    /* Add */
+    /* Add Item */
     case "workAdd":
       return { ...state, work: [...state.work, payload.newItem] };
     case "crewAdd":
       return { ...state, crew: [...state.crew, payload.newItem] };
-    /*  */
+    /* Set Action */
     case "setAction":
       return { ...state, action: payload.act, edit: payload.key };
     /* Edit */
@@ -19,6 +20,13 @@ function omReducer(state, despatch) {
     case "workEdit":
       let workList = state.work.filter((item) => item.key !== payload.key);
       return { ...state, work: [...workList, payload.newItem].sort(compare) };
+    /* Delete Item */
+    case "crewDelete":
+      let crList = state.crew.filter((item) => item.key !== payload.key);
+      return { ...state, crew: crList.sort(compare) };
+    case "workDelete":
+      let wrList = state.work.filter((item) => item.key !== payload.key);
+      return { ...state, work: wrList.sort(compare) };
 
     /* Get Data */
     default:

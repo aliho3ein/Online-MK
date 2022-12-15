@@ -2,8 +2,26 @@ import { useContext } from "react";
 import omContext from "../context/omContext";
 import { togglePopUp, addData, editData } from "./../request";
 
+/* sweetAlert */
+import Swal from "sweetalert2";
+
 export default function PopUp() {
   let { state, despatch } = useContext(omContext);
+
+  let placeHolder = [];
+  switch (state.action) {
+    case "work":
+      placeHolder = ["Unternehmer Name", "Über die Unternehmer"];
+      break;
+    case "crew":
+      placeHolder = [
+        "Mitarbeiter:in FullName",
+        "position - Email - Telefone Nr. - about mitarbeiter",
+      ];
+      break;
+    default:
+      break;
+  }
 
   let setData = (dt) => {
     let act = state.action;
@@ -27,20 +45,23 @@ export default function PopUp() {
     }
   };
 
-  let placeHolder = [];
-  switch (state.action) {
-    case "work":
-      placeHolder = ["Unternehmer Name", "Über die Unternehmer"];
-      break;
-    case "crew":
-      placeHolder = [
-        "Mitarbeiter:in FullName",
-        "position - Email - Telefone Nr. - about mitarbeiter",
-      ];
-      break;
-    default:
-      break;
-  }
+  /* Edit Data -----------------------*/
+  let changeData = () => {
+    Swal.fire({
+      title: "möchtest du die Änderungen speichern?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Speichern",
+      denyButtonText: `Nicht Speichern`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        setData("edit");
+      } else if (result.isDenied) {
+        Swal.fire("die Änderungen wurde nicht speichert", "", "info");
+      }
+    });
+  };
 
   return (
     <div className="popUpArea disNone">
@@ -76,7 +97,7 @@ export default function PopUp() {
           <button
             className="cmsBtn btnYellow"
             id="articleEdit"
-            onClick={() => setData("edit")}
+            onClick={changeData}
           >
             Bearbeiten
           </button>
