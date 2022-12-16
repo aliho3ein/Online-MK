@@ -17,3 +17,9 @@ Hergestellt mit :
 ---
 
 live [version](https://ma-consulting.netlify.app/)
+
+---
+# Bugs
+- after create crew or work we can't delete or Edit item before Refresh the site,
+ because we have no key in item Object !
+
